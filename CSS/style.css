@@ -1,0 +1,1995 @@
+/*ПРЕЛОАДЕР*/
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0d161f;
+    z-index: 50000;
+    transition: 1s all;
+    opacity: 1;
+    visibility: visible;
+}
+
+.preloader.done {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.wrapper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader-div {
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    border: 8px solid #162534;
+    border-top: 8px solid #09f;
+    border-radius: 50%;
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*ПРЕЛОАДЕР ЗАКОНЧЕН*/
+
+
+/*ОБЩИЕ СТИЛИ*/
+
+
+/*доп настройки для элементов-списков*/
+
+.count {
+    display: inline;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+* {
+    margin: 0%;
+}
+
+h1 {
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    /*тех что приводятся в привере либо не определяет даже фотошоп, либо не может задать среда разработки*/
+    font-size: 36px;
+    line-height: 5px;
+}
+
+h2 {
+    font-family: Myriad Pro;
+    font-size: 16px;
+    color: #394b50;
+    padding: 0%;
+    margin: 0%;
+}
+
+h3 {
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 24px;
+    color: #818b95;
+}
+
+a {
+    text-decoration: none;
+}
+
+sup {
+    font-size: 30px;
+}
+
+
+/*параметры горизонтальных линий*/
+
+hr {
+    width: 83%;
+    margin: 4%;
+    border: none;
+    height: 0px;
+    border-top: 1px solid #e2e9f0;
+}
+
+input {
+    height: 6%;
+    margin-right: 0.3%;
+    width: 16%;
+    border: none;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-top: 35px;
+}
+
+
+/*стили для подзаголовков*/
+
+
+/*этот из наччала на синем фоне*/
+
+.podzagolovok {
+    font-size: 22px;
+    padding-top: 20px;
+    font-family: Lato;
+    font-weight: 300;
+}
+
+
+/*КОНЕЦ ОБЩИХ СТИЛЕЙ*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!КЛАССЫ ДЛЯ БУРГЕРА!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/* основные стили*/
+
+.container {
+    max-width: 74%;
+    /*было 1180*/
+    margin: 0px auto;
+    padding: 0 10px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px;
+}
+
+.header:before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.header__body {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 93px;
+    align-items: center;
+}
+
+.header__logo {
+    flex: 0 0 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+}
+
+.header__logo img {
+    max-width: 100%;
+    display: block;
+}
+
+.header__burger {
+    /* скрываем его для всех разрешений кроме заданыйх в последующих медиазапросах*/
+    display: none;
+}
+
+.header__menu {
+    height: 40px;
+}
+
+.header__list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+    height: 40px;
+    font-family: Lato;
+    font-weight: 400;
+}
+
+.header__list li {
+    list-style: none;
+    margin-left: 45px;
+    height: 40px;
+}
+
+.header__link {
+    color: #868686;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.content {
+    padding-top: 100px;
+}
+
+.content__text {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.content__text a {
+    margin: 0 0 20px 0;
+}
+
+
+/*проба активного хедера*/
+
+a.active {
+    background-color: #ffbb42;
+    color: #fff;
+    border: 1px;
+    border-style: solid;
+    border-color: #e7ad48;
+    border-radius: 3px;
+    padding: 0 10px;
+    height: 40px;
+}
+
+
+/*класс для активного пункта меню*/
+
+.header__list li a:hover {
+    background-color: #ffbb42;
+    color: #fff;
+    border: 1px;
+    border-style: solid;
+    border-color: #e7ad48;
+    border-radius: 3px;
+    padding: 0 10px;
+    height: 40px;
+    transition: all 0.3s ease 0s;
+    box-shadow: rgba(250, 183, 57, 0.7) 0px 0px 15px;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ХЕДЕР ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! БЛОК ГЛАВНОЙ СТРАНИЦЫ HOME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.home {
+    width: 100%;
+    height: 450px;
+    background-color: #709dca;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 10%;
+}
+
+.vvodVerh {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 15%;
+    justify-content: center;
+    padding-top: 2%;
+}
+
+.vvodVerh input {
+    height: 40px;
+    width: 87%;
+    margin-right: 5px;
+    margin-top: 0%;
+}
+
+.request {
+    background-color: #ffbb42;
+    color: #ffffff;
+    height: 42px;
+    width: 80%;
+    font-size: 13.5px;
+    font-family: Myriad Pro;
+    border: 1px;
+    border-style: solid;
+    border-color: #ffbb42;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.trubka {
+    background: url(../IMG/trubka.png) no-repeat center left;
+    padding-left: 35px;
+    background-color: #ffffff;
+}
+
+.pismo {
+    background: url(../IMG/pismo.png) no-repeat center left;
+    padding-left: 37px;
+    background-color: #ffffff;
+}
+
+.men {
+    background: url(../IMG/men.png) no-repeat center left;
+    padding-left: 37px;
+    background-color: #ffffff;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HOME ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!СЛАЙДЕР SLICK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*контейнер со слайдером*/
+
+.slContainer {
+    height: 150px;
+    width: 80% auto;
+    margin-top: 4%;
+}
+
+.sl {
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+
+/*стили для слайдов*/
+
+.sl__slide {
+    position: relative;
+}
+
+.sl__text {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
+}
+
+.sl__zag,
+.sl__desc {
+    margin: 0%;
+    padding: 0 10px;
+}
+
+
+/*стили для точек*/
+
+.slick-dots li button {
+    border: 2px solid #dedfe0;
+    border-radius: 50%;
+    transition: border-color .3s;
+    height: 5px;
+    width: 5px;
+    margin: 20px auto;
+}
+
+.slick-dots li button::before {
+    /*content: '';*/
+    content: none;
+    width: 10px;
+    height: 10px;
+    background: #777;
+    opacity: 1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin: -5px 0 0 -5px;
+    transition: background .3s;
+}
+
+.slick-dots li button:hover,
+.slick-dots li.slick-active button {
+    border-color: #1ca8dd;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!СЛАЙДЕР ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!БЛОК SERVISE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.service {
+    width: 100%;
+    height: 750px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #394b50;
+    padding-top: 13%;
+}
+
+.podzagolovok__services {
+    color: #4e5d61;
+}
+
+
+/*обще настройки сетки*/
+
+.grid {
+    margin: 100px;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(2, 43%);
+    grid-template-rows: repeat(3, 150px);
+    justify-content: center;
+    /*эта команда размещает сетку по центру*/
+    margin-left: 6%;
+}
+
+
+/*внешний вид ячеек*/
+
+.grid>* {
+    background-color: #ffffff;
+    padding: none;
+    margin: 10px;
+    text-align: left;
+}
+
+.servcont {
+    font-family: Open Sans;
+    font-size: 14px;
+    color: #7b7b7b;
+    line-height: 1.5;
+}
+
+.clock {
+    background: url(../IMG/clock.png) no-repeat top left;
+    padding-left: 100px;
+    color: #7b7b7b;
+    margin-right: 120px;
+}
+
+.gear {
+    background: url(../IMG/gear.png) no-repeat top left;
+    padding-left: 100px;
+}
+
+.shapka {
+    background: url(../IMG/shapka.png) no-repeat top left;
+    padding-left: 100px;
+    margin-right: 120px;
+}
+
+.raketa {
+    background: url(../IMG/raketa.png) no-repeat top left;
+    padding-left: 100px;
+}
+
+.krug {
+    background: url(../IMG/krug.png) no-repeat top left;
+    padding-left: 100px;
+    margin-right: 120px;
+}
+
+.dollar {
+    background: url(../IMG/dollar.png) no-repeat top left;
+    padding-left: 100px;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!БЛОК ABOUT US!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.about {
+    width: 100%;
+    height: 65vh;
+    /*714px*/
+    background-color: #ffc155;
+    color: #ffffff;
+    margin: 0%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.readmore {
+    background-color: #ffc155;
+    color: #ffffff;
+    height: 35px;
+    width: 135px;
+    font-size: 13px;
+    font-family: Myriad Pro;
+    border: 1px;
+    border-style: solid;
+    border-color: #e7ad48;
+    border-radius: 3px;
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+.abuim {
+    padding: 0 0% 0 0;
+    background-size: cover;
+    background: url(../IMG/abuim.png) no-repeat 0% 90%;
+}
+
+.abut {
+    text-align: left;
+    padding: 20% 25% 0% 10%;
+    /*margin-right: 10%;*/
+    line-height: 25px;
+    font-family: Open Sans;
+    font-weight: 300;
+    font-size: 15px;
+    align-self: center;
+}
+
+.abut p {
+    padding-top: 40px;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ABOUT US ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!БЛОК С ПРАЙСАМИ CHOOS YOUR PRICE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.pricing {
+    text-align: center;
+    background-color: #e7edf3;
+    width: 100%;
+    height: 850px;
+    color: #394b50;
+    padding-top: 8%;
+}
+
+.podzagolovok__price {
+    color: #818b95;
+}
+
+.bloki {
+    margin-top: 3%;
+    width: 100%;
+    height: 100%;
+}
+
+.basicPlan {
+    background-color: #ffffff;
+    height: 48%;
+    color: #b5bbc1;
+}
+
+.premiumPlan {
+    background-color: #709dca;
+    height: 57%;
+    color: #c2e1ff;
+}
+
+
+/*блок встроенный в premium plan для выравнивания содержимого по горизонтали (premium plan mini)*/
+
+.mpp {
+    height: 87%;
+    width: 100%;
+    margin: 10% 0 10% 0;
+}
+
+
+/*класс для перекраски в белый заголовка PREMIUM PLAN*/
+
+.premiumH3 {
+    color: #ffffff;
+}
+
+
+/*класс для premium plan per moth*/
+
+.pmP {
+    margin: -3% 0 10% 0;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.goldPlan {
+    background-color: #ffffff;
+    height: 48%;
+    color: #b5bbc1;
+}
+
+
+/*класс для выравнивания блоков с прайсами в строку + включает в себя общие для этих трёх блоков харрактеристики*/
+
+.vstroku {
+    display: inline-block;
+    margin-right: -0.25em;
+    /*убираем правый отступ между блоками*/
+    width: 24.5%;
+    vertical-align: middle;
+    padding: 3% 0;
+    border-radius: 3px;
+    border-color: #ccd5df;
+    border-style: solid;
+    border-width: 1px;
+}
+
+
+/*тестовый класс для размещения фишек в блоках вертикально*/
+
+.fishki {
+    text-align: center;
+    margin-left: -12%;
+    font-family: Lato;
+    font-weight: 400;
+}
+
+
+/*класс для per month*/
+
+.pm {
+    margin: -3% 0 10% 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 14px;
+    color: #9fa6ad;
+}
+
+.cena {
+    font-size: 60px;
+    color: #ffc155;
+    font-weight: 700;
+    margin: 3% 0 2% 0;
+    font-family: Lato;
+}
+
+.cenaPr {
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: 700;
+    margin: 3% 0 2% 0;
+    font-family: Lato;
+}
+
+.tiny {
+    font-weight: 300;
+}
+
+
+/*класс отвечающий за линии в premium plan*/
+
+.premiumHr {
+    width: 83%;
+    margin: 4%;
+    border: none;
+    height: 0px;
+    border-top: 1px solid #8eb8e2;
+}
+
+
+/*тут пойдут параметры кнопок*/
+
+.getStarted {
+    background-color: #ffc155;
+    color: #ffffff;
+    height: 37px;
+    width: 140px;
+    font-size: 14px;
+    font-family: Myriad Pro;
+    border: 1px;
+    border-style: solid;
+    border-color: #e7ad48;
+    border-radius: 3px;
+    margin-top: 10%;
+    cursor: pointer;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!CHOOS YOUR PRICE ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!БЛОК HOW IT WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.howItWork {
+    width: 100%;
+    height: 730px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #394b50;
+    padding-top: 8%;
+}
+
+.podzagolovok__howItWork {
+    color: #606d70;
+}
+
+.steps {
+    width: 80%;
+    margin-top: 7%;
+    margin-left: 10%;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(4, 23%);
+    justify-content: center;
+    /*эта команда размещает сетку по центру*/
+}
+
+.stepsH2 {
+    margin-bottom: 5%;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.step1 {
+    background: url(../IMG/step1.png) no-repeat top;
+    padding: 55% 12% 0 12%;
+    font-family: Myriad Pro;
+    font-weight: 400;
+    font-size: 15px;
+    color: #7b7b7b;
+    line-height: 1.7;
+}
+
+.step2 {
+    background: url(../IMG/step2.png) no-repeat top;
+    padding: 55% 12% 0 12%;
+    font-family: Myriad Pro;
+    font-size: 15px;
+    color: #7b7b7b;
+    line-height: 1.7;
+}
+
+.step3 {
+    background: url(../IMG/step3.png) no-repeat top;
+    padding: 55% 12% 0 12%;
+    font-family: Myriad Pro;
+    font-size: 15px;
+    color: #7b7b7b;
+    line-height: 1.7;
+}
+
+.step4 {
+    background: url(../IMG/step4.png) no-repeat top;
+    padding: 55% 12% 0 12%;
+    font-family: Myriad Pro;
+    font-size: 15px;
+    color: #7b7b7b;
+    line-height: 1.7;
+}
+
+
+/*классы для размещения стрелок*/
+
+.strelaVerh1 {
+    width: 80%;
+    height: 50px;
+    margin-top: -2%;
+    background: url(../IMG/strelaverh.png) no-repeat 24%;
+    position: absolute;
+}
+
+.strelaVerh3 {
+    width: 80%;
+    height: 50px;
+    margin-top: -2%;
+    background: url(../IMG/strelaverh.png) no-repeat 76%;
+    position: absolute;
+}
+
+.strelaNiz {
+    width: 80%;
+    height: 50px;
+    margin-top: 3%;
+    background: url(../IMG/strelaniz.png) no-repeat 50%;
+    position: absolute;
+}
+
+
+/*доп настройка для кнопки*/
+
+.gSN {
+    margin-top: 6%;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!БЛОК HOW IT WORK ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!БЛОК HAPPY CLIENTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.happyClients {
+    width: 100%;
+    height: 750px;
+    text-align: center;
+    background-color: #ffc155;
+    color: #ffffff;
+    padding-top: 8%;
+}
+
+
+/*обще настройки сетки*/
+
+.otzyvy {
+    color: #7b7b7b;
+    width: 82%;
+    margin: 3% 9% 0 9%;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(2, 47%);
+    grid-template-rows: repeat(2, 58%);
+    justify-content: center;
+    /*эта команда размещает сетку по центру*/
+}
+
+
+/*внешний вид ячеек*/
+
+.cell {
+    background-color: #ffffff;
+    padding: 8% 5% 2% 5%;
+    margin: 1% 2% 2% 4%;
+    text-align: left;
+    border-radius: 2px;
+    line-height: 1.5;
+    font-family: OpenSans Regular;
+    font-size: 13px;
+    display: grid;
+    /*задаём размер внутренней сетки*/
+    grid-template-columns: 25% 75%;
+    grid-column-gap: 5px;
+}
+
+.tekstOtzyva {
+    background-color: #fff;
+    font-family: Open Sans;
+    font-weight: 500;
+}
+
+
+/*ниже 4 класса с аватарами которые едут на текст при нажатии F12*/
+
+.baba {
+    width: 110px;
+    height: 110px;
+    background: url(../IMG/baba.png) no-repeat;
+    background-size: cover;
+    margin-top: -10%;
+}
+
+.kudri {
+    width: 110px;
+    height: 110px;
+    background: url(../IMG/kudri.png) no-repeat;
+    background-size: cover;
+    margin-top: -10%;
+}
+
+.spina {
+    width: 110px;
+    height: 110px;
+    background: url(../IMG/spina.png) no-repeat;
+    background-size: cover;
+    margin-top: -10%;
+}
+
+.poc {
+    width: 110px;
+    height: 110px;
+    background: url(../IMG/poc.png) no-repeat;
+    background-size: cover;
+    margin-top: -10%;
+}
+
+.client {
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 14px;
+    padding-top: 8%;
+    color: #99a9ae;
+}
+
+.clientName {
+    color: #f6772c;
+}
+
+
+/*верхние кавычки*/
+
+.kvcV {
+    font-family: BrandonGrotesque Bold;
+    font-size: 30pt;
+    line-height: 0pc;
+    margin-left: -5%;
+}
+
+
+/*нижние*/
+
+.kvcN {
+    font-family: BrandonGrotesque Bold;
+    font-size: 30pt;
+    line-height: 0pc;
+    margin-left: 0%;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HAPPY CLIENTS ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ПОСЛЕДНИЙ БЛОК С КОНТАКТАМИ CONTACTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.contact {
+    width: 100%;
+    height: 900px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #394b50;
+    padding-top: 8%;
+}
+
+
+/*блок с двумя полями и кнопкой*/
+
+.poljaIknopka {
+    height: 100px;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 18% 22% 12%;
+    grid-gap: 17px;
+    justify-content: center;
+}
+
+
+/*доп стили для полей*/
+
+.nameNiz,
+.pismoNiz {
+    border: 1px solid #cbcbcb;
+    width: 80%;
+    height: 31px;
+    margin-top: 0%;
+    justify-self: end;
+    align-self: center;
+}
+
+.pismoNiz {
+    width: 95%;
+    justify-self: center;
+}
+
+.knopkaNiz {
+    width: 85%;
+    padding-top: 7px;
+    margin-top: 0%;
+    justify-self: start;
+    align-self: center;
+}
+
+.map {
+    width: 100%;
+    height: 70%;
+    background: url(../IMG/map.png) no-repeat;
+    background-color: #ffffff;
+    background-size: 100% auto;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.bkrug {
+    width: 400px;
+    height: 74%;
+    background: url(../IMG/bkrug2.png) no-repeat center center;
+    background-size: 310px;
+    margin-top: 15px;
+}
+
+.vKrugu {
+    height: 100%;
+    width: 100%;
+    margin-top: 29%;
+    display: flex;
+    flex-direction: column;
+}
+
+.countHead {
+    font-family: Lato;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+
+/*стили для списка в круге*/
+
+.spisokKruga {
+    font-family: OpenSans;
+    margin-top: 4%;
+    font-weight: 300;
+    line-height: 150%;
+    color: #aeb7ba;
+    background-size: 50% auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0%;
+}
+
+.mail {
+    color: #ffbb42;
+    font-family: Open Sans;
+    font-weight: 300;
+}
+
+.hrDown {
+    width: 74%;
+    /*padding: 0 10% 0 10%;*/
+    margin: 4% 13% 4% 13%;
+    border: none;
+    height: 0px;
+    border-top: 1px solid #e3e7ec;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!CONTACTS ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!FOOTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+footer {
+    width: 100%;
+    height: 120px;
+    background: #ffffff;
+    text-align: center;
+    margin-top: 1%;
+    font-family: Lato;
+    font-weight: 400;
+}
+
+.menu {
+    margin-top: 5%;
+}
+
+
+/*меняет цвет ссылок в футере на нужный*/
+
+.spisokFooter {
+    color: #394b50;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 13pt;
+}
+
+
+/*номер телефона в футере*/
+
+.nomerNiz {
+    height: 24px;
+    width: 160px;
+    justify-content: center;
+    margin: 1% 45% 1% 45%;
+    text-align: center;
+    color: #394b50;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 22.52px;
+    background: url(../IMG/trubkaNiz.png) no-repeat center left;
+    background-color: #ffffff;
+    padding-left: 17px;
+}
+
+
+/*расположение иконок соц сетей*/
+
+.socSeti {
+    background-color: #ffffff;
+    width: 100%;
+    height: 20%;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+
+/*классы иконок соц сетей*/
+
+.twit,
+.fb,
+.google,
+.in {
+    background: url(../IMG/twit.png) no-repeat center center;
+    background-color: #ffffff;
+    padding-left: 25px;
+    margin-left: -5%;
+}
+
+.fb {
+    background: url(../IMG/fb.png) no-repeat center center;
+    margin-left: -3%;
+}
+
+.google {
+    background: url(../IMG/g+.png) no-repeat center center;
+    margin-left: -3%;
+}
+
+.in {
+    background: url(../IMG/in.png) no-repeat center center;
+    margin-left: -3%;
+}
+
+.count_footer {
+    display: inline;
+    font-weight: 400;
+    padding-left: 3%;
+}
+
+
+/*строка с копирайттом*/
+
+.copyright {
+    color: #ffffff;
+    background-color: #709dca;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    padding-top: 19px;
+    font-family: Open Sans;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!FOOTER ЗАКОНЧЕН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!БРЕЙК ПОИНТЫ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+@media (max-width:1439px) {
+    .vvodVerh input {
+        width: 83%;
+        margin-right: 15px;
+    }
+    .contact {
+        height: 750px;
+    }
+    .bkrug {
+        width: 400px;
+        height: 74%;
+        background: url(../IMG/bkrug2.png) no-repeat center center;
+        background-size: 270px;
+        margin-top: 15px;
+    }
+    .vKrugu {
+        height: 100%;
+        width: 100%;
+        margin-top: 20%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:1024px) {
+    /*воткну бургер на пробу */
+    /*отрубаем прокрутку сайта пари открытом меню*/
+    body.lock {
+        overflow: hidden;
+    }
+    /*уменьшаем в мобильной версии высоту хэдера */
+    .header__body {
+        height: 50px;
+    }
+    /*уменьаем размер лого*/
+    .header__logo {
+        flex: 0 0 40px;
+        justify-self: center;
+        margin-left: -15%;
+    }
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+        margin-right: -15%;
+    }
+    /*центральная линия*/
+    .header__burger span {
+        position: absolute;
+        background-color: #ffbb42;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        /*чтобы добавить плавности движущимся элементам добавим это свойство*/
+        transition: all 0.3s ease 0s;
+    }
+    /*рисуем линии с помощью спевдоэлементов*/
+    .header__burger:before,
+    .header__burger:after {
+        content: '';
+        background-color: #ffbb42;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        /*чтобы добавить плавности движущимся элементам добавим это свойство*/
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger:before {
+        top: 0%;
+    }
+    .header__burger:after {
+        bottom: 0;
+    }
+    /*при нажатии кнопки бургера, ему добавляется класс эктив, разворачиваем 2 палочки из бургера, чтобы они образовалирестик, а спан убрать*/
+    .header__burger.active:before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .header__burger.active:after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+    .header__burger.active span {
+        transform: scale(0);
+    }
+    .header__menu {
+        position: fixed;
+        /*при таком значении меню будет появляться сверху, а при эктив зададим 0%*/
+        top: -100%;
+        left: 0%;
+        width: 100%;
+        height: 50px;
+        /*при добавлении оверфлоу авто, мы получаем возможность скролить меню при необходимости*/
+        overflow: auto;
+        transition: all 0.3s ease 0s;
+        background-color: #ffbb42;
+        padding: 70px 10px 0 10px;
+    }
+    .header__menu.active {
+        top: 0%;
+        height: 100%;
+        padding: 0;
+    }
+    .header__list {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: space-around;
+        padding-left: 0%;
+    }
+    .header__list li {
+        margin: 0 0 80px 0;
+    }
+    .header__link {
+        font-size: 40px;
+        color: #fff;
+    }
+    .content {
+        padding-top: 70px;
+    }
+    /*КОНЕЦ ПРОБЫ БУРГЕРА     */
+    .vvodVerh {
+        grid-template-columns: 20% 20% 20% 15%;
+        grid-column-gap: 10px;
+    }
+    .vvodVerh input {
+        width: 80%;
+    }
+    .service {
+        width: 100%;
+        height: 800px;
+        background-color: #ffffff;
+        text-align: center;
+        color: #394b50;
+        padding-top: 14%;
+    }
+    .grid {
+        margin: 40px 70px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /*эта команда размещает сетку по центру*/
+    }
+    .grid__item {
+        margin-bottom: 20px;
+    }
+    .about {
+        height: 50vh;
+    }
+    .abut {
+        padding: 30% 25% 0% 10%;
+    }
+    .pricing {
+        height: 700px;
+    }
+    .howItWork {
+        height: 600px;
+    }
+    .steps {
+        width: 100%;
+        margin-left: 0%;
+        justify-content: center;
+    }
+    /*классы для размещения стрелок*/
+    .strelaVerh1,
+    .strelaNiz,
+    .strelaVerh3 {
+        display: none;
+    }
+    .happyClients {
+        height: 700px;
+    }
+    .otzyvy {
+        width: 100%;
+        margin: 3% 0% 0 0%;
+    }
+    .poc,
+    .spina,
+    .kudri,
+    .baba {
+        width: 90px;
+        height: 90px;
+        margin-left: -10%;
+    }
+    .contact {
+        height: 570px;
+        padding-top: 6%;
+    }
+    .knopkaNiz {
+        width: 90%;
+        padding-top: 4px;
+    }
+    .map {
+        width: 100%;
+        height: 60%;
+        background-size: contain;
+        justify-self: center;
+    }
+    .bkrug {
+        height: 300px;
+        width: 220px;
+        background-size: contain;
+    }
+    .count {
+        font-size: 13px;
+    }
+    .hrDown,
+    .menu {
+        display: none;
+    }
+    footer {
+        height: 100px;
+        margin-top: 0;
+    }
+    .nomerNiz {
+        margin: 1% 48% 1% 42%;
+    }
+    /*строка с копирайттом*/
+    .copyright {
+        width: 100%;
+        height: 25px;
+        text-align: center;
+        justify-content: center;
+        font-family: Open Sans;
+        font-weight: 300;
+        font-size: 13px;
+        padding-top: 5px;
+    }
+}
+
+@media (max-width:768px) {
+    .header__list li {
+        margin: 0 0 60px 0;
+    }
+    .header__link {
+        font-size: 30px;
+    }
+    .home {
+        padding-top: 12%;
+    }
+    .vvodVerh {
+        grid-template-columns: 23% 23% 23% 15%;
+    }
+    .vvodVerh input {
+        height: 30px;
+        width: 76%;
+        margin-right: 5px;
+    }
+    .request {
+        height: 32px;
+        width: 95%;
+        font-size: 12px;
+    }
+    .service {
+        height: 850px;
+        padding-top: 17%;
+    }
+    /*НИЖЕ БЛОК ABOUT US */
+    .about {
+        width: 100%;
+        height: 450px;
+        background-size: cover;
+        background: url(../IMG/abuim.png) no-repeat;
+        color: #ffffff;
+        margin: 0%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .abuim {
+        display: none;
+    }
+    .orange {
+        width: 100%;
+        height: 450px;
+        background: rgba(255, 193, 85, 0.51);
+        padding: 0;
+        margin: 0;
+    }
+    .abut {
+        height: 80%;
+        width: 75%;
+        padding: 100px 0 0 0;
+        /* padding-top: 130px;*/
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        justify-self: center;
+    }
+    /*БЛОК С ПРАЙСАМИ CHOOS YOUR PRICE*/
+    .bloki {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 3%;
+        width: 100%;
+        height: 100%;
+    }
+    .vstroku {
+        display: grid;
+        margin-right: 0;
+        /*убираем правый отступ между блоками*/
+        width: 60%;
+        padding: 1% 0;
+        border-radius: 5px;
+        border-color: #ccd5df;
+        border-style: solid;
+        border-width: 1px;
+    }
+    /*АДАПТИВ ЯЧЕЙКИ В ВИДЕ ТАБЛИЦЫ*/
+    .goldPlan,
+    .basicPlan,
+    .mpp {
+        display: grid;
+        grid-template-columns: repeat(2, [col] 1fr);
+        grid-template-rows: repeat(4, [row] 1fr);
+        background-color: #ffffff;
+        height: 25%;
+        color: #b5bbc1;
+        justify-content: center;
+        align-items: center;
+    }
+    .mpp {
+        height: 20%;
+        width: 85%;
+        justify-self: center;
+        margin: 1%;
+        background-color: #709dca;
+        color: #c2e1ff;
+    }
+    .goldPlan h3,
+    .goldPlan p,
+    .goldPlan button,
+    .basicPlan h3,
+    .basicPlan p,
+    .basicPlan button,
+    .mpp h3,
+    .mpp p,
+    .mpp button {
+        grid-column: col 1 / col 2;
+    }
+    .goldPlan ul,
+    .basicPlan ul,
+    .mpp ul {
+        grid-column: col 2 / col 3;
+        grid-row: row 1 / row 5;
+        padding: 0%;
+    }
+    .mpp ul {
+        margin-left: 10%;
+    }
+    .pm,
+    .cena,
+    .cenaPr,
+    .pmP {
+        margin: 0px;
+    }
+    .getStarted {
+        margin-top: 5%;
+        justify-self: center;
+    }
+    .premiumPlan {
+        height: 25%;
+        width: 65%;
+    }
+    .firstLine {
+        display: none;
+    }
+    /*НИЖЕ БЛОК HOW IT WORK*/
+    .howItWork {
+        width: 100%;
+        height: 530px;
+        text-align: center;
+        background-color: #ffffff;
+        color: #394b50;
+        padding-top: 8%;
+    }
+    .happyClients {
+        width: 100%;
+        height: 810px;
+    }
+    /*внешний вид ячеек*/
+    .cell {
+        height: 120px;
+        background-color: #ffffff;
+        padding: 4% 5% 2% 5%;
+        margin: 1% 2% 2% 4%;
+        text-align: left;
+        border-radius: 2px;
+        line-height: 1.5;
+        font-family: OpenSans Regular;
+        font-size: 13px;
+        display: grid;
+        /*задаём размер внутренней сетки*/
+        grid-template-columns: 20% 80%;
+        grid-column-gap: 5px;
+    }
+    .baba {
+        width: 110px;
+        height: 110px;
+        background: url(../IMG/baba.png) no-repeat;
+        background-size: cover;
+        margin-top: -10%;
+        margin-left: -10%;
+    }
+    .kudri {
+        width: 110px;
+        height: 110px;
+        background: url(../IMG/kudri.png) no-repeat;
+        background-size: cover;
+        margin-top: -10%;
+        margin-left: -10%;
+    }
+    .spina {
+        width: 110px;
+        height: 110px;
+        background: url(../IMG/spina.png) no-repeat;
+        background-size: cover;
+        margin-top: -10%;
+        margin-left: -10%;
+    }
+    .poc {
+        width: 110px;
+        height: 110px;
+        background: url(../IMG/poc.png) no-repeat;
+        background-size: cover;
+        margin-top: -10%;
+        margin-left: -10%;
+    }
+    /*обще настройки сетки*/
+    .otzyvy {
+        color: #7b7b7b;
+        width: 82%;
+        margin: 3% 9% 0 9%;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /*эта команда размещает сетку по центру*/
+    }
+    .poljaIknopka {
+        height: 200px;
+        width: 80%;
+        background-color: #ffffff;
+        margin-left: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /*доп стили для полей*/
+    .nameNiz,
+    .pismoNiz {
+        border: 1px solid #cbcbcb;
+        height: 31px;
+        width: 80%;
+    }
+    .knopkaNiz {
+        height: 31px;
+        width: 150px;
+    }
+    .map {
+        height: 20%;
+        background: none;
+        margin: 0%;
+        display: flex;
+    }
+    .bkrug {
+        width: 365px;
+        height: 100%;
+        background: none;
+        margin: 0;
+    }
+    .vKrugu {
+        height: 100%;
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    footer {
+        height: 55px;
+        padding-top: 20px;
+    }
+    .socSeti {
+        height: 20px;
+    }
+    .count_footer {
+        padding: 0;
+        margin: 0 6% 6% 6%;
+    }
+    .menu,
+    .nomerNiz {
+        display: none;
+    }
+    .contact {
+        height: 350px;
+    }
+    .mail {
+        color: #709dca;
+    }
+    /*ПРОБНЫЕ СТИЛИ ДЛЯ СПОЙЛЕРА */
+    .countHead {
+        /*  text-transform: uppercase;*/
+        letter-spacing: 2px;
+        position: relative;
+        padding-left: 0px;
+        /* cursor: pointer;*/
+        color: #aeb7ba;
+        /*max-height: 100% auto;*/
+    }
+    /*стрелочку задаём через псевдо элементы*/
+    /* .countHead:before,
+        .countHead:after {
+            content: '';
+            width: 10px;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            top: 8px;
+            /*добавляем плавность анимации открытия и закрытия спойлера*/
+    /* transition: all 0.3s ease 0s;
+        }*/
+    /*поворачиваем псевдо элементы, чтобы получилась стрелочка*/
+    /* .countHead:before {
+            transform: rotate(40deg);
+            left: 0%;
+        }
+        .countHead:after {
+            transform: rotate(-40deg);
+            left: 8px;
+        }
+        /*тут мы задаём цвет стрелке после клика,   */
+    /*.countHead.active:before,
+        .countHead.active:after {
+            background-color: red;
+        }
+        /*разворачиваем стрелочку после клика*/
+    /*.countHead.active:before {
+            transform: rotate(-40deg);
+        }
+        .countHead.active:after {
+            transform: rotate(40deg);
+        }*/
+    .spisokKruga {
+        padding: 0;
+        height: 90px;
+        display: inline;
+        /*скрываем текст, т.к. изначально он не должен быть виден*/
+        /* display: none;*/
+    }
+}
+
+@media (max-width:375px) {
+    /*ХЭДЕР БУРГЕР*/
+    .header__menu {
+        padding: 50px 0 0 0;
+    }
+    .header__menu.active {
+        top: 0%;
+        height: 100%;
+    }
+    .header__list {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* align-content: space-around;*/
+        justify-self: center;
+    }
+    .header__list li {
+        margin-bottom: 25px;
+    }
+    .header__link {
+        font-size: 24px;
+        color: #fff;
+    }
+    /*СЛАЙДЕР*/
+    .sl__slide,
+    .slContainer {
+        width: 100%;
+        justify-content: center;
+    }
+    .sl__img {
+        max-width: 90%;
+        margin: 0 2% 0 2%;
+    }
+    /*остальной HOME*/
+    .home {
+        height: 420px;
+        padding-top: 20%;
+    }
+    h1 {
+        font-size: 24px;
+        height: 11%;
+        line-height: 1;
+    }
+    .podzagolovok {
+        font-size: 14px;
+        padding-top: 10px;
+        font-family: Lato;
+        font-weight: 300;
+    }
+    .vvodVerh {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 4%;
+    }
+    .vvodVerh input {
+        height: 30px;
+        width: 75%;
+        margin-right: 0px;
+        margin-top: 1%;
+        align-self: center;
+    }
+    .request {
+        height: 31px;
+        width: 85%;
+        align-self: center;
+        margin-top: 1%;
+    }
+    .slContainer {
+        margin-top: 7%;
+    }
+    /*OUR SERVICE*/
+    .service {
+        height: 700px;
+    }
+    .podzagolovok__services {
+        margin-top: -15%;
+    }
+    .grid {
+        margin: 20px 10px;
+    }
+    .grid__item {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        width: 80% auto;
+    }
+    .servcont {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+    .clock {
+        background: url(../IMG/clock.png) no-repeat top left;
+        padding-left: 70px;
+        margin-right: 10px;
+        margin-left: -10px;
+    }
+    .gear {
+        background: url(../IMG/gear.png) no-repeat top left;
+        padding-left: 60px;
+        margin-right: 10px;
+        margin-left: 0px;
+    }
+    .shapka {
+        background: url(../IMG/shapka.png) no-repeat top left;
+        padding-left: 70px;
+        margin-right: 10px;
+        margin-left: -10px;
+    }
+    .raketa {
+        background: url(../IMG/raketa.png) no-repeat top left;
+        padding-left: 65px;
+        margin-right: 10px;
+        margin-left: -5px;
+    }
+    .krug {
+        background: url(../IMG/krug.png) no-repeat top left;
+        padding-left: 75px;
+        margin-right: 10px;
+        margin-left: -15px;
+    }
+    .dollar {
+        background: url(../IMG/dollar.png) no-repeat top left;
+        padding-left: 65px;
+        margin-right: 10px;
+        margin-left: -5px;
+    }
+    /*НИЖЕ БЛОК ABOUT US */
+    .about {
+        width: 100%;
+        height: 500px;
+        background-size: cover;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .orange {
+        height: 500px;
+    }
+    .abut {
+        padding-top: 25px;
+        text-align: center;
+    }
+    .abut p {
+        padding-top: 15px;
+    }
+    /*БЛОК С ПРАЙСАМИ CHOOS YOUR PRICE*/
+    .pricing {
+        height: 750px;
+    }
+    .podzagolovok__price {
+        margin-top: -18%;
+    }
+    .bloki {
+        padding-top: 5%;
+    }
+    .vstroku {
+        width: 85%;
+        padding: 1% 0;
+    }
+    /*АДАПТИВ ЯЧЕЙКИ В ВИДЕ ТАБЛИЦЫ*/
+    .goldPlan,
+    .basicPlan,
+    .mpp {
+        height: 25%;
+    }
+    .mpp {
+        margin: 4%;
+    }
+    .mpp ul {
+        margin-left: 15%;
+    }
+    .premiumPlan {
+        height: 30%;
+        width: 95%;
+    }
+    /*НИЖЕ БЛОК HOW IT WORK*/
+    .podzagolovok__howItWork {
+        margin-top: -17%;
+    }
+    .howItWork {
+        height: 730px;
+        padding-top: 8%;
+    }
+    .steps {
+        margin-top: 7%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /*эта команда размещает сетку по центру*/
+    }
+    .stepsH2 {
+        margin-bottom: 0%;
+        font-size: 14px;
+    }
+    .step1,
+    .step2,
+    .step3,
+    .step4 {
+        background: url(../IMG/step1.png) no-repeat top;
+        background-size: 60px;
+        padding: 20% 0% 5% 0%;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.3;
+    }
+    .step2 {
+        background: url(../IMG/step2.png) no-repeat top;
+        background-size: 50px;
+    }
+    .step3 {
+        background: url(../IMG/step3.png) no-repeat top;
+        background-size: 60px;
+    }
+    .step4 {
+        background: url(../IMG/step4.png) no-repeat top;
+        background-size: 60px;
+    }
+    /*НИЖЕ БЛОК HAPPY CLIENTS*/
+    .happyClients {
+        height: 730px;
+    }
+    .happyClients .podzagolovok {
+        margin-top: -17%;
+    }
+    /*обще настройки сетки*/
+    .otzyvy {
+        width: 94%;
+        margin: 15px 10px 0 10px;
+    }
+    /*внешний вид ячеек*/
+    .cell {
+        padding-top: 20px;
+        height: 120px;
+        line-height: 1.2;
+        font-size: 10px;
+        /*задаём размер внутренней сетки*/
+    }
+    .baba,
+    .kudri,
+    .spina,
+    .poc {
+        width: 55px;
+        height: 55px;
+        background: url(../IMG/baba.png) no-repeat center;
+        background-size: cover;
+        margin-top: 10%;
+    }
+    .kudri {
+        background: url(../IMG/kudri.png) no-repeat;
+        background-size: cover;
+    }
+    .spina {
+        background: url(../IMG/spina.png) no-repeat;
+        background-size: cover;
+    }
+    .poc {
+        background: url(../IMG/poc.png) no-repeat;
+        background-size: cover;
+    }
+    .client {
+        font-size: 12px;
+    }
+    /*НИЖЕ ПОСЛЕДНИЙ БЛОК С КОНТАКТАМИ CONTACTS*/
+    .contact .podzagolovok {
+        margin-top: -6%;
+    }
+    .vKrugu {
+        margin-top: 15px;
+    }
+    .spisokKruga {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+    /*строка с копирайттом*/
+    .copyright {
+        height: 35px;
+        padding-top: 4px;
+        font-size: 10px;
+    }
+}
