@@ -1709,7 +1709,7 @@ footer {
     }
 }
 
-@media (max-width:375px) {
+@media (max-width:414px) {
     /*ХЭДЕР БУРГЕР*/
     .header__menu {
         padding: 50px 0 0 0;
@@ -1784,13 +1784,14 @@ footer {
     }
     /*OUR SERVICE*/
     .service {
-        height: 700px;
+        height: 620px;
+        padding-top: 25%;
     }
     .podzagolovok__services {
-        margin-top: -15%;
+        margin-top: -12%;
     }
     .grid {
-        margin: 20px 10px;
+        margin: 20px 15px;
     }
     .grid__item {
         margin-bottom: 15px;
@@ -1852,7 +1853,7 @@ footer {
         height: 500px;
     }
     .abut {
-        padding-top: 25px;
+        padding-top: 45px;
         text-align: center;
     }
     .abut p {
@@ -1863,7 +1864,7 @@ footer {
         height: 750px;
     }
     .podzagolovok__price {
-        margin-top: -18%;
+        margin-top: -15%;
     }
     .bloki {
         padding-top: 5%;
@@ -1890,13 +1891,15 @@ footer {
     }
     /*НИЖЕ БЛОК HOW IT WORK*/
     .podzagolovok__howItWork {
-        margin-top: -17%;
+        margin-top: -15%;
     }
     .howItWork {
         height: 730px;
         padding-top: 8%;
     }
     .steps {
+        width: 90%;
+        padding: 0 5%;
         margin-top: 7%;
         display: flex;
         flex-direction: column;
@@ -1929,6 +1932,9 @@ footer {
     .step4 {
         background: url(../IMG/step4.png) no-repeat top;
         background-size: 60px;
+    }
+    .getStarted {
+        margin-bottom: 7px;
     }
     /*НИЖЕ БЛОК HAPPY CLIENTS*/
     .happyClients {
@@ -1991,5 +1997,28 @@ footer {
         height: 35px;
         padding-top: 4px;
         font-size: 10px;
+    }
+}
+
+@media (max-width:375px) {
+    .service {
+        height: 700px;
+        padding-top: 17%;
+        padding-left: 0px;
+    }
+    .podzagolovok__services {
+        margin-top: -15%;
+    }
+    .abut {
+        padding-top: 25px;
+    }
+    .podzagolovok__price {
+        margin-top: -18%;
+    }
+    .getStarted {
+        margin-bottom: 0px;
+    }
+    .podzagolovok__howItWork {
+        margin-top: -17%;
     }
 }
